@@ -8,8 +8,8 @@ function convert {
   cats=$1
   for cat in $cats
   do
-    mkdir -p docs/${cat}
-    jupyter nbconvert --to html --output-dir docs/${cat} notebooks/${cat}/*
+    mkdir -p ./docs/${cat}
+    jupyter nbconvert --to html --output-dir ./docs/${cat} ./notebooks/${cat}/*
   done
 }
 
@@ -51,8 +51,9 @@ __EOS__
 
 function main {
   cats=$(get_category)
+  mkdir ./docs
   convert "$cats"
-  make_summary "$cats"
+  make_summary "$cats" > ./docs/convert.sh
 }
 
 main "$#"

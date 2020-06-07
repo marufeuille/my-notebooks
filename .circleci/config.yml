@@ -9,14 +9,14 @@ jobs:
     # Run the welcome/run job in its own container
     steps:
       - checkout
-      - run: ./convert.sh >> docs/index.html
+      - run: ./convert.sh
   deploy:
     docker:
       - image: jupyter/base-notebook:latest
     # Run the welcome/run job in its own container
     steps:
       - checkout
-      - run: ./convert.sh >> html/index.html
+      - run: ./convert.sh
       - run: ./deploy.sh
 
 workflows:
