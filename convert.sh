@@ -1,7 +1,7 @@
 #!/bin/bash
 
 function get_category {
-  echo "$(ls notebooks)"
+  echo "$(ls my-notebooks/notebooks)"
 }
 
 function convert {
@@ -9,7 +9,7 @@ function convert {
   for cat in $cats
   do
     mkdir -p ./docs/${cat}
-    jupyter nbconvert --to html --output-dir ./docs/${cat} ./notebooks/${cat}/*
+    jupyter nbconvert --to html --output-dir ./docs/${cat} ./my-notebooks/notebooks/${cat}/*
   done
 }
 
@@ -35,7 +35,7 @@ __EOS__
   do
     echo "<h2>${cat}</h2>"
     echo "<ul>"
-    for file_with_ext in $(ls notebooks/${cat})
+    for file_with_ext in $(ls my-notebooks/notebooks/${cat})
     do
       filename=$(get_filename $file_with_ext)
       echo "<li><a href='./${cat}/${filename}.html'>${filename}</a></li>"
@@ -51,7 +51,7 @@ __EOS__
 
 function main {
   cats=$(get_category)
-  mkdir ./docs
+  mkdir -p ./docs
   convert "$cats"
   make_summary "$cats" > ./docs/convert.sh
 }
