@@ -53,7 +53,7 @@ function main {
   cats=$(get_category)
   mkdir -p ./docs
   convert "$cats"
-  make_summary "$cats" > ./docs/convert.sh
+  make_summary "$cats" > ./docs/index.html
 }
 
 main "$#"
