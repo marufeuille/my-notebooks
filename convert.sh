@@ -8,8 +8,8 @@ function convert {
   cats=$1
   for cat in $cats
   do
-    mkdir -p html/${cat}
-    jupyter nbconvert --to html --output-dir html/${cat} notebooks/${cat}/*
+    mkdir -p docs/${cat}
+    jupyter nbconvert --to html --output-dir docs/${cat} notebooks/${cat}/*
   done
 }
 
