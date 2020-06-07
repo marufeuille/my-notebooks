@@ -8,7 +8,8 @@ git config --global push.default simple
 git config --global user.email $(git --no-pager show -s --format='%ae' HEAD)
 git config --global user.name $CIRCLE_USERNAME
 
-git clone -q --branch=gh-pages $CIRCLE_REPOSITORY_URL $DEPLOY_DIR
+git clone -q $CIRCLE_REPOSITORY_URL $DEPLOY_DIR
+git checkout gh-pages
 
 cd $DEPLOY_DIR
 rm -rf *
