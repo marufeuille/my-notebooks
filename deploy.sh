@@ -4,13 +4,15 @@ set -e
 cd
 DEPLOY_DIR=deploy
 
+git clone -q https://github.com/marufeuille/my-notebooks/ $DEPLOY_DIR
+
+cd $DEPLOY_DIR
+
 git config --global push.default simple
 git config --global user.email $(git --no-pager show -s --format='%ae' HEAD)
 git config --global user.name $CIRCLE_USERNAME
 
-git clone -q https://github.com/marufeuille/my-notebooks/ $DEPLOY_DIR
 
-cd $DEPLOY_DIR
 git checkout gh-pages
 rm -rf *
 cp -r ../docs/* .
