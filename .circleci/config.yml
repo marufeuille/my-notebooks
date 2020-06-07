@@ -8,7 +8,7 @@ jobs:
       - image: marufeuille/pages-building-image:latest
     # Run the welcome/run job in its own container
     steps:
-      - run: mkdir -p ~/.ssh/ && echo -e "Host github.com\n\tStrictHostKeyChecking no\n\tUser git\n" > ~/.ssh/config
+      - run: mkdir -p ~/.ssh/ && echo -e "Host github.com\n\tStrictHostKeyChecking no\n\tUser git\n" >> ~/.ssh/config
       - run: git clone -q git@github.com:marufeuille/my-notebooks.git
       - run: ./my-notebooks/convert.sh
   deploy:
