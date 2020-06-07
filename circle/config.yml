@@ -5,14 +5,14 @@ jobs:
   # Name the workflow "welcome"
   build:
     docker:
-      - jupyter/base-notebook:latest
+      - image: jupyter/base-notebook:latest
     # Run the welcome/run job in its own container
     steps:
       - checkout
       - run: ./convert.sh >> docs/index.html
   deploy:
     docker:
-      - jupyter/base-notebook:latest
+      - image jupyter/base-notebook:latest
     # Run the welcome/run job in its own container
     steps:
       - checkout
