@@ -16,6 +16,10 @@ jobs:
       - image: marufeuille/pages-building-image:latest
     # Run the welcome/run job in its own container
     steps:
+
+      - add_ssh_keys:
+          fingerprints:
+            - "67:80:fa:3a:81:5c:f2:e1:89:b7:57:1d:7f:62:45:2a"
       - run: mkdir ~/.ssh/ && echo -e "Host github.com\n\tStrictHostKeyChecking no\n\tUser git\n" > ~/.ssh/config
       - run: git clone -q git@github.com:marufeuille/my-notebooks.git
       - run: ./my-notebooks/convert.sh
