@@ -12,7 +12,7 @@ jobs:
       - run: ./convert.sh >> docs/index.html
   deploy:
     docker:
-      - image jupyter/base-notebook:latest
+      - image: jupyter/base-notebook:latest
     # Run the welcome/run job in its own container
     steps:
       - checkout
