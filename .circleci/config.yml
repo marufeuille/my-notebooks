@@ -15,6 +15,9 @@ jobs:
       - image: marufeuille/pages-building-image:latest
     # Run the welcome/run job in its own container
     steps:
+      - run:
+        name: Avoid hosts unknown for github
+        command: mkdir ~/.ssh/ && echo -e "Host github.com\n\tStrictHostKeyChecking no\n" > ~/.ssh/config
       - run: git clone -q git@github.com:marufeuille/my-notebooks.git
       - run: ./my-notebooks/convert.sh
       - run: ./my-notebooks/deploy.sh
