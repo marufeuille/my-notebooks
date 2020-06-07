@@ -9,15 +9,15 @@ jobs:
     # Run the welcome/run job in its own container
     steps:
       - run: git clone https://github.com/marufeuille/my-notebooks.git
-      - run: ./convert.sh
+      - run: ./my-notebooks/convert.sh
   deploy:
     docker:
       - image: marufeuille/pages-building-image:latest
     # Run the welcome/run job in its own container
     steps:
       - run: git clone https://github.com/marufeuille/my-notebooks.git
-      - run: ./convert.sh
-      - run: ./deploy.sh
+      - run: ./my-notebooks/convert.sh
+      - run: ./my-notebooks/deploy.sh
 
 workflows:
   version: 2
