@@ -16,4 +16,4 @@ rsync -arv --delete ../docs/* .
 
 echo git add -f .
 echo git commit -m "Deploy build $CIRCLE_BUILD_NUM [ci skip]" || true
-echo git push -f
+echo git push origin HEAD
