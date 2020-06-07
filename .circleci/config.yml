@@ -5,14 +5,14 @@ jobs:
   # Name the workflow "welcome"
   build:
     docker:
-      - image: jupyter/base-notebook:latest
+      - image: marufeuille/pages-building-image:latest
     # Run the welcome/run job in its own container
     steps:
       - checkout
       - run: ./convert.sh
   deploy:
     docker:
-      - image: jupyter/base-notebook:latest
+      - image: marufeuille/pages-building-image:latest
     # Run the welcome/run job in its own container
     steps:
       - checkout
