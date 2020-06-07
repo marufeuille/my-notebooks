@@ -5,7 +5,7 @@ DEPLOY_DIR=deploy
 
 ls
 
-git clone -q https://github.com/marufeuille/my-notebooks/ $DEPLOY_DIR
+git clone -q git@github.com:marufeuille/my-notebooks/ $DEPLOY_DIR
 cd $DEPLOY_DIR
 git checkout gh-pages
 
