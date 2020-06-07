@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
 set -e
-cd
 DEPLOY_DIR=deploy
 
 ls
