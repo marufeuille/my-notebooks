@@ -8,7 +8,7 @@ jobs:
       - image: marufeuille/pages-building-image:latest
     # Run the welcome/run job in its own container
     steps:
-      - run: git clone https://github.com/marufeuille/my-notebooks.git
+      - run: git clone -q git@github.com:marufeuille/my-notebooks.git
       - run: ./my-notebooks/convert.sh
   deploy:
     docker:
