@@ -18,6 +18,6 @@ cp -r ../docs/* .
 echo $(ls)
 echo $(pwd)
 
-echo git add .
-echo git commit -m "Deploy build $CIRCLE_BUILD_NUM [ci skip]" || true
-echo git push origin gh-pages
+git add .
+git commit -m "Deploy build $CIRCLE_BUILD_NUM [ci skip]" || true
+git push origin gh-pages
