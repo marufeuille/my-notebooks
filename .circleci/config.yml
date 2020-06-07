@@ -8,14 +8,14 @@ jobs:
       - image: marufeuille/pages-building-image:latest
     # Run the welcome/run job in its own container
     steps:
-      - checkout
+      - run: git clone https://github.com/marufeuille/my-notebooks.git
       - run: ./convert.sh
   deploy:
     docker:
       - image: marufeuille/pages-building-image:latest
     # Run the welcome/run job in its own container
     steps:
-      - checkout
+      - run: git clone https://github.com/marufeuille/my-notebooks.git
       - run: ./convert.sh
       - run: ./deploy.sh
 
